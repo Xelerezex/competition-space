@@ -17,7 +17,7 @@ target_link_libraries(
             pthread
 )
     
-    # Added tests
+# Added tests
 add_test(
         NAME              ${TARGET_NAME}
         COMMAND           ${TARGET_NAME}
