@@ -1,7 +1,7 @@
 ##  Power of Two
 Given an integer ```n```, return ```true``` _if it is a power of two. Otherwise, return_ ```false```.
 
-An integer ```n``` is a power of two, if there exists an integer ```x``` such that ```n == $2^x$```.
+An integer ```n``` is a power of two, if there exists an integer ```x``` such that $n == 2^x$.
 
 #### Example 1:
 ```cpp
@@ -23,5 +23,5 @@ Input: n = 3
 Output: false
 ```
 
-#### Constraints:
-- ```-$2^31$ <= n <= $2^31$ - 1```
+#### Constraints: 
+- $-2^{31} <= n <= 2^{31} - 1$
