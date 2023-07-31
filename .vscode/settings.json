@@ -83,8 +83,8 @@
     "editor.formatOnSave": true,
     //"C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 3, IncludeBlocks: Merge, IndentGotoLabels: true, KeepEmptyLinesAtTheStartOfBlocks: true}"
     "C_Cpp.clang_format_style": "file:${workspaceFolder}/.vscode/.clang-format",
-
-        "todo-tree.highlights.defaultHighlight": {
+    
+    "todo-tree.highlights.defaultHighlight": {
         "icon": "alert",
         "type": "text",
         "foreground": "#FF4500",
