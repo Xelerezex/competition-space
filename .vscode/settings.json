@@ -68,6 +68,7 @@
     
     // Added clang-tidy code analysis for project:
     "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+    "C_Cpp.codeAnalysis.runAutomatically": false,
     "C_Cpp.codeAnalysis.exclude": {
         
         "**/build": true
