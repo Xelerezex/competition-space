@@ -62,26 +62,41 @@
         "cassert": "cpp",
         "bitset": "cpp"
     },
+    // Setups of external clang-format:
+    "editor.defaultFormatter": "ms-vscode.cpptools",
+    "editor.formatOnSave": true,
+    
     // Added clang-tidy code analysis for project:
-    "C_Cpp.codeAnalysis.clangTidy.enabled": false,
+    "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+    "C_Cpp.codeAnalysis.exclude": {
+        
+        "**/build": true
+    },
     "C_Cpp.codeAnalysis.clangTidy.checks.disabled": [
+        "llvmlibc-*",
+        "cppcoreguidelines-owning-memory",
+        "hicpp-signed-bitwise",
+        "misc-confusable-identifiers",
+        "misc-non-private-member-variables-in-classes",
+        "misc-use-anonymous-namespace",
+        "modernize-macro-to-enum",
+        "modernize-use-default-member-init",
         "modernize-use-trailing-return-type",
-        "readability-redundant-access-specifiers"
+        "readability-identifier-length",
+        "readability-redundant-access-specifiers",
     ],
     "C_Cpp.codeAnalysis.clangTidy.checks.enabled": [
         "bugprone-*",
-        "clang-analyzer-core.*",
+        "clang-analyzer-*",
         "cppcoreguidelines-*",
         "hicpp-*",
         "misc-*",
         "modernize-*",
         "performance-*",
-        "readability-*"
+        "readability-*",
     ],
-    // Setups of external clang-format:
-    "editor.defaultFormatter": "ms-vscode.cpptools",
-    "editor.formatOnSave": true,
-    //"C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 3, IncludeBlocks: Merge, IndentGotoLabels: true, KeepEmptyLinesAtTheStartOfBlocks: true}"
+    
+    // Setups for clang-format
     "C_Cpp.clang_format_style": "file:${workspaceFolder}/.vscode/.clang-format",
     
     "todo-tree.highlights.defaultHighlight": {

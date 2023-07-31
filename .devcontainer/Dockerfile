@@ -37,6 +37,7 @@ RUN apt-get install ${INST_FLAGS} clang
 RUN apt-get install ${INST_FLAGS} lld
 RUN apt-get install ${INST_FLAGS} lldb
 RUN apt-get install ${INST_FLAGS} clang-format
+RUN apt-get install ${INST_FLAGS} clang-tidy
 RUN apt-get install ${INST_FLAGS} valgrind
 RUN apt-get install ${INST_FLAGS} doxygen
 RUN apt-get install ${INST_FLAGS} ca-certificates
@@ -46,10 +47,11 @@ RUN apt-get install ${INST_FLAGS} libgtest-dev
 RUN apt-get install ${INST_FLAGS} libgmock-dev
 RUN apt-get install ${INST_FLAGS} libtbb-dev
 RUN apt-get install ${INST_FLAGS} libpcsclite-dev
+
 # Dependecies for Sublime Merge
-RUN apt-get install ${INST_FLAGS} ffmpeg 
-RUN apt-get install ${INST_FLAGS} libsm6 
-RUN apt-get install ${INST_FLAGS} libxext6
+# RUN apt-get install ${INST_FLAGS} ffmpeg 
+# RUN apt-get install ${INST_FLAGS} libsm6 
+# RUN apt-get install ${INST_FLAGS} libxext6
 
 # Path to google test library:
 ENV GTEST_PATH="/usr/src/googletest"

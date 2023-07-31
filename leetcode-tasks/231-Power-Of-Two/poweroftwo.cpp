@@ -12,12 +12,7 @@ public:
                                      double tolerance
                                      = std::numeric_limits<double>::epsilon())
     {
-        if (std::fabs(number) <= tolerance * std::pow(10, rounding))
-        {
-            return true;
-        }
-
-        return false;
+        return std::fabs(number) <= tolerance * std::pow(10, rounding);
     }
 
     double logbase (double number, double base)
@@ -42,18 +37,13 @@ public:
             return true;
         }
 
-        double base = logbase(static_cast<double>(n), 2.0);
-        double tail{0.0};
-        double integer{0.0};
+        const double base = logbase(static_cast<double>(n), 2.0);
+        double       tail{0.0};
+        double       integer{0.0};
 
         tail = std::modf(base, &integer);
 
-        if (!isApproximatelyZero(tail, 5))
-        {
-            return false;
-        }
-
-        return true;
+        return isApproximatelyZero(tail, 5);
     }
 };
 
