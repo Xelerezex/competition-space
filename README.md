@@ -9,6 +9,7 @@
 | 3       | [498][leetcode-3] | [Diagonal Traverse][github-3]                       | `Medium`    |
 | 3       | [66][leetcode-4]  | [Plus One][github-4]                                | `Easy`      |
 | 4       | [231][leetcode-5] | [Power of Two][github-5]                            | `Easy`      |
+| 5       | [342][leetcode-6] | [Power of Four][github-6]                           | `Easy`      |
 
 [leetcode-1]: https://leetcode.com/problems/largest-number-at-least-twice-of-others/
 [github-1]: https://github.com/Xelerezex/competition-space/tree/main/leetcode-tasks/747-Largest-Number-At-Least-Twice-Of-Others
@@ -24,3 +25,6 @@
 
 [leetcode-5]: https://leetcode.com/problems/power-of-two/
 [github-5]: https://github.com/Xelerezex/competition-space/tree/main/leetcode-tasks/231-Power-Of-Two
+
+[leetcode-6]: https://leetcode.com/problems/power-of-four/
+[github-6]: https://github.com/Xelerezex/competition-space/tree/main/leetcode-tasks/342-Power-Of-Four

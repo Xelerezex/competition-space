@@ -13,5 +13,8 @@ add_subdirectory("66-Plus-One")
 include_directories("231-Power-Of-Two")
 add_subdirectory("231-Power-Of-Two")
 
+include_directories("342-Power-Of-Four")
+add_subdirectory("342-Power-Of-Four")
+
 # Enable testing
 enable_testing()
