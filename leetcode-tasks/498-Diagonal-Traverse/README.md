@@ -4,7 +4,7 @@ Given an ```m x n``` matrix mat, return *an array of all the elements of the arr
 
 #### Example 1:
 
-![alt text](https://github.com/Xelerezex/competition-space/tree/main/Images/diagonal-traverse-image.jpg)
+![alt text](https://github.com/Xelerezex/competition-space/blob/main/Images/diagonal-traverse-image.jpg)
 
 
 ```cpp
