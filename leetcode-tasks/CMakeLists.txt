@@ -19,5 +19,8 @@ add_subdirectory("342-Power-Of-Four")
 include_directories("338-Counting-Bits")
 add_subdirectory("338-Counting-Bits")
 
+include_directories("190-Reverse-Bits")
+add_subdirectory("190-Reverse-Bits")
+
 # Enable testing
 enable_testing()

@@ -11,6 +11,7 @@
 | 4       | [231][leetcode-5] | [Power of Two][github-5]                            | `Easy`      |
 | 5       | [342][leetcode-6] | [Power of Four][github-6]                           | `Easy`      |
 | 6       | [338][leetcode-7] | [Counting Bits][github-7]                           | `Easy`      |
+| 6       | [190][leetcode-8] | [Reverse Bits][github-8]                            | `Easy`      |
 
 [leetcode-1]: https://leetcode.com/problems/largest-number-at-least-twice-of-others/
 [github-1]: https://github.com/Xelerezex/competition-space/tree/main/leetcode-tasks/747-Largest-Number-At-Least-Twice-Of-Others
@@ -32,3 +33,6 @@
 
 [leetcode-7]: https://leetcode.com/problems/counting-bits/
 [github-7]: https://github.com/Xelerezex/competition-space/tree/main/leetcode-tasks/338-Counting-Bits
+
+[leetcode-8]: https://leetcode.com/problems/reverse-bits/
+[github-8]: https://github.com/Xelerezex/competition-space/tree/main/leetcode-tasks/190-Reverse-Bits
