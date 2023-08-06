@@ -4,19 +4,24 @@
 class Solution
 {
 public:
-public:
+    unsigned get_lastbit (unsigned number)
+    {
+        return number & ~(~0U << 1);
+    }
+
     uint32_t reverseBits (uint32_t n)
     {
         uint32_t maxBitCount{32};
-        // uint32_t output{0};
-        //  uint32_t temporary{0};
+        uint32_t output{0};
 
-        // for (uint32_t index = 0; index < maxBitCount; ++index)
-        //{
-        //     output = ;
-        // }
+        for (uint32_t index = 0; index < maxBitCount; ++index)
+        {
+            uint32_t bit = get_lastbit(n >> index);
 
-        return (n << maxBitCount) | (n >> maxBitCount);
+            output |= bit << ((maxBitCount - 1) - index);
+        }
+
+        return output;
     }
 };
 
@@ -37,6 +42,14 @@ TEST(TestingPositiveInput, Input2)
 {
     const uint32_t input_data{0b11111111111111111111111111111101};
     const uint32_t expected{3221225471};
+
+    EXPECT_EQ(Solution{}.reverseBits(input_data), expected);
+}
+
+TEST(TestingPositiveInput, Input3)
+{
+    const uint32_t input_data{3221225473};
+    const uint32_t expected{2147483651};
 
     EXPECT_EQ(Solution{}.reverseBits(input_data), expected);
 }
