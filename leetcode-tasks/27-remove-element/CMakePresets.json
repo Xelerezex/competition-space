@@ -11,6 +11,7 @@
                 "CMAKE_C_COMPILER": "cl.exe",
                 "CMAKE_CXX_COMPILER": "cl.exe",
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "1",
+                "CMAKE_CXX_STANDARD": "20",
                 "CMAKE_BINARY_DIR": "${sourceDir}/build",
                 "CMAKE_PREFIX_PATH": ""
             },
