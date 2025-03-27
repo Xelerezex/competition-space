@@ -2,7 +2,7 @@
 $targetPath = Resolve-Path ..\leetcode-tasks
 
 # Folders to delete
-$folderNames = @("build", ".cache")
+$folderNames = @("build", ".cache", ".vscode")
 
 # Find and delete directories with name "build" & ".cache" recursively in folder ../leet-code
 Get-ChildItem -Path $targetPath -Recurse -Directory |
