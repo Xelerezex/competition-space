@@ -1,5 +1,5 @@
 # Запрашиваем имя у пользователя:
-$name = Read-Host "Enter task name: "
+$name = Read-Host "Enter task name"
 # ------------------------------------------------------------------------------
 
 # Подключаем все файлы с наполнением:
@@ -20,6 +20,11 @@ $name = Read-Host "Enter task name: "
 $parentDir = Split-Path -Parent (Get-Location)
 # Формируем путь к новой директории
 $targetDir = Join-Path -Path $parentDir -ChildPath "leetcode-tasks/$name"
+if (Test-Path $targetDir -PathType Container)
+{
+    Write-Host "There is existing '$name' task directory in leetcode-tasks/. Remove it first" -ForegroundColor Red
+    exit
+}
 # Формируем путь к папке .vscode
 $vsCodeDir = Join-Path -Path $parentDir -ChildPath "leetcode-tasks/$name/.vscode"
 # Создаём директорию leetcode-tasks/$name (если её нет)
@@ -57,4 +62,4 @@ $launchJsonContent | Out-File -FilePath $filePathLaunchJson -Encoding utf8
 $settingsJsonContent | Out-File -FilePath $filePathSettingsJson -Encoding utf8
 $tasksJsonContent | Out-File -FilePath $filePathTasksJson -Encoding utf8
 
-Write-Output "New task created!"
+Write-Host "New task fully created!" -ForegroundColor Green

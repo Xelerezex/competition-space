@@ -4,17 +4,22 @@ $targetPath = Resolve-Path ..\leetcode-tasks
 # Folders to delete
 $folderNames = @("build", ".cache", ".vscode")
 
+$changeFilesCounter = 0
 # Find and delete directories with name "build" & ".cache" recursively in folder ../leet-code
 Get-ChildItem -Path $targetPath -Recurse -Directory |
     Where-Object { $folderNames -contains $_.Name } |
-    ForEach-Object {
-        try {
+    ForEach-Object { # { <- could be only on that line. Do not move to new line
+        try
+        {
             Remove-Item $_.FullName -Recurse -Force -ErrorAction Stop
-            Write-Host "Deleted: $($_.FullName)"
+            Write-Host "Deleted: $($_.FullName)" -ForegroundColor Green
+            $changeFilesCounter++
         }
-        catch {
-            Write-Warning "Deletion failed: $($_.FullName) - error: $($_.Exception.Message)"
+        catch
+        {
+            Write-Host "Deletion failed: $($_.FullName) - error: $($_.Exception.Message)" -ForegroundColor Red
         }
     }
 
-Write-Host "Deletion completed."
+Write-Host "Deleted '$changeFilesCounter' directories." -ForegroundColor Green
+Write-Host "Deletion completed." -ForegroundColor Green
