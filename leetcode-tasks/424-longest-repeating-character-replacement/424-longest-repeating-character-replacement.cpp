@@ -12,7 +12,6 @@ public:
 
         std::size_t mostFrequentCharCount = 0;
 
-        // ARHGAAARRBK
         std::size_t left = 0;
         for (std::size_t right = 0; right < s.size(); ++right)
         {
