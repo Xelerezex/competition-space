@@ -20,7 +20,6 @@ public:
             }
             hash.emplace(nums[index], index);
         }
-
         return {};
     }
 };
