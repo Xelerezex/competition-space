@@ -59,7 +59,7 @@ public:
             // if there is no leftIndex +, only (rightIndex - leftIndex) / 2, could be inf loop
             std::size_t middle = leftIndex + ((rightIndex - leftIndex) / 2);
 
-            if (nums[middle] < nums[rightIndex])
+            if (nums[middle] <= nums[rightIndex])
             {
                 rightIndex = middle; /* if - 1 out of range error */
             }
