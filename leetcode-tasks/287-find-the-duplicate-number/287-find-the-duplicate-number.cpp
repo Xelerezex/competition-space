@@ -26,7 +26,6 @@ public:
     }
 };
 
-
 // NOTE: Second solution with Floyds Tortoise & Hare algorithm
 //       It's cool, but it slower than upper solution
 /*
