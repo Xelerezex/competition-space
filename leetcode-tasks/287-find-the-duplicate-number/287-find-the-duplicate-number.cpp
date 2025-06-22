@@ -1,5 +1,6 @@
 ﻿#include <gtest/gtest.h>
 
+/*
 // NOTE: My first solution. And it is quiet efficient
 class Solution
 {
@@ -26,9 +27,10 @@ public:
     }
 };
 
+*/
+
 // NOTE: Second solution with Floyds Tortoise & Hare algorithm
 //       It's cool, but it slower than upper solution
-/*
 class Solution
 {
 
@@ -36,33 +38,42 @@ public:
 
     int findDuplicate(std::vector<int>& nums)
     {
-        int slow = nums[0];
-        int fast = nums[0];
+        int slowIndex = nums[0];
+        int fastIndex = nums[0];
 
         // Find a loop
         while (true)
         {
-            slow = nums[slow];
-            fast = nums[nums[fast]];
-            if (slow == fast)
+            slowIndex = nums[slowIndex];
+            fastIndex = nums[nums[fastIndex]];
+
+            if (slowIndex == fastIndex)
             {
                 break;
             }
         }
 
         // Find start of loop
-        int slow2 = nums[0];
-        while (slow2 != slow)
+        int newSlowIndex = nums[0];
+        while (slowIndex != newSlowIndex)
         {
-            slow = nums[slow];
-            slow2 = nums[slow2];
+            slowIndex = nums[slowIndex];
+            newSlowIndex = nums[newSlowIndex];
         }
 
-        return slow;
+        return slowIndex;
     }
 };
-*/
+
 TEST (SolutionTest, CornerCase1)
+{
+    std::vector<int> nums{ 1, 3, 4, 2, 0 };
+    const auto result = Solution{}.findDuplicate(nums);
+    const auto& expected = 1;
+    EXPECT_EQ(expected, result);
+}
+
+TEST (SolutionTest, CornerCase2)
 {
     std::vector<int> nums{ 1, 3, 4, 2, 2 };
     const auto result = Solution{}.findDuplicate(nums);
