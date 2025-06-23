@@ -17,9 +17,11 @@ public:
         {
             return -1;
         }
-        writeAsLRU(foundIter->second);
+        const auto& listIter = foundIter->second;
+        
+        writeAsLRU(listIter);
 
-        return m_lastRecentlyUsedIter->value;
+        return listIter->value;
     }
     
     void put(int key, int value)
@@ -37,21 +39,22 @@ public:
         // Or else insert 
         if (m_capacity > m_data.size())
         {
+            // Default insert
             pushValueToFront(key, value);
+            return;
         }
-        else
-        {   
-            // Remove Least Recently Used
-            const auto keyToDelete = std::begin(m_data)->key;
-            m_hash.erase(keyToDelete);
-            m_data.pop_front();
-            
-            // Push to front
-            pushValueToFront(key, value);
-        }
+        
+        // Remove Least Recently Used if (m_capacity =< m_data.size())
+        const auto keyToDelete = std::begin(m_data)->key;
+        m_hash.erase(keyToDelete);
+        m_data.pop_front();
+        
+        // Push to front
+        pushValueToFront(key, value);
     }
 
 private:
+
     struct Node
     {
         int key{ -1 };
@@ -70,13 +73,11 @@ private:
 
     void writeAsLRU(const std::list<Node>::iterator& iter)
     {
-        m_lastRecentlyUsedIter = iter;
-
         // Move LRU element to tail
         m_data.splice(
             std::end(m_data), 
             m_data, 
-            m_lastRecentlyUsedIter
+            iter
         );
     }
 
@@ -86,7 +87,6 @@ private:
 
     std::list<Node> m_data;
     std::unordered_map<int, std::list<Node>::iterator> m_hash;
-    std::list<Node>::const_iterator m_lastRecentlyUsedIter;
 
 };
 
