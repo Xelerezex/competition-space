@@ -3,8 +3,10 @@ $targetPath = Resolve-Path ..\leetcode-tasks
 
 # Folders to delete
 $folderNames = @("build", ".cache", ".vscode")
+# Files to delete
+$filesNames = @(".clang-tidy", ".clang-format")
 
-$changeFilesCounter = 0
+$changeEntityCounter = 0
 # Find and delete directories with name "build" & ".cache" recursively in folder ../leet-code
 Get-ChildItem -Path $targetPath -Recurse -Directory |
     Where-Object { $folderNames -contains $_.Name } |
@@ -13,7 +15,7 @@ Get-ChildItem -Path $targetPath -Recurse -Directory |
         {
             Remove-Item $_.FullName -Recurse -Force -ErrorAction Stop
             Write-Host "Deleted: $($_.FullName)" -ForegroundColor Green
-            $changeFilesCounter++
+            $changeEntityCounter++
         }
         catch
         {
@@ -21,5 +23,21 @@ Get-ChildItem -Path $targetPath -Recurse -Directory |
         }
     }
 
-Write-Host "Deleted '$changeFilesCounter' directories." -ForegroundColor Green
+# Find and delete files with name ".clang-tidy" & ".clang-format"
+Get-ChildItem -Path $targetPath -Recurse -File |
+    Where-Object { $filesNames -contains $_.Name } |
+    ForEach-Object {
+        try
+        {
+            Remove-Item $_.FullName -Recurse -Force -ErrorAction Stop
+            Write-Host "Deleted: $($_.FullName)" -ForegroundColor Green
+            $changeEntityCounter++
+        }
+        catch
+        {
+            Write-Host "Deletion failed: $($_.FullName) - error: $($_.Exception.Message)" -ForegroundColor Red
+        }
+    }
+
+Write-Host "Deleted '$changeEntityCounter' directories." -ForegroundColor Green
 Write-Host "Deletion completed." -ForegroundColor Green

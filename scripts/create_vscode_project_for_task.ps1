@@ -42,13 +42,15 @@ if (-Not (Test-Path $vscodePath -PathType Container))
     New-Item -ItemType Directory -Path $vscodePath | Out-Null
 
     # Забираем пути до файлов проекта
+    # -----
+    $filePathClangFormat = Join-Path -Path $targetPath -ChildPath ".clang-format"
+    $filePathClangTidy = Join-Path -Path $targetPath -ChildPath ".clang-tidy"
+    # -----
     $filePathCCppPropertiesJson = Join-Path -Path $vscodePath -ChildPath "c_cpp_properties.json"
-    $filePathClangFormat = Join-Path -Path $vscodePath -ChildPath ".clang-format"
-    $filePathClangTidy = Join-Path -Path $vscodePath -ChildPath ".clang-tidy"
     $filePathLaunchJson = Join-Path -Path $vscodePath -ChildPath "launch.json"
     $filePathSettingsJson = Join-Path -Path $vscodePath -ChildPath "settings.json"
     $filePathTasksJson = Join-Path -Path $vscodePath -ChildPath "tasks.json"
-
+    # -----
     $cCppPropertiesJsonContent | Out-File -FilePath $filePathCCppPropertiesJson -Encoding utf8
     $clangFormatContent | Out-File -FilePath $filePathClangFormat -Encoding utf8
     $clangTidyContent | Out-File -FilePath $filePathClangTidy -Encoding utf8

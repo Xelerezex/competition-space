@@ -41,10 +41,10 @@ $filePathCMakeLists = Join-Path -Path $targetDir -ChildPath "CMakeLists.txt"
 $filePathCMakePresets = Join-Path -Path $targetDir -ChildPath "CMakePresets.json"
 # Формируем путь к файлу README.md:
 $filePathReadMe = Join-Path -Path $targetDir -ChildPath "README.md"
+$filePathClangFormat = Join-Path -Path $targetDir -ChildPath ".clang-format"
+$filePathClangTidy = Join-Path -Path $targetDir -ChildPath ".clang-tidy"
 # -------------------------------------
 $filePathCCppPropertiesJson = Join-Path -Path $vsCodeDir -ChildPath "c_cpp_properties.json"
-$filePathClangFormat = Join-Path -Path $vsCodeDir -ChildPath ".clang-format"
-$filePathClangTidy = Join-Path -Path $vsCodeDir -ChildPath ".clang-tidy"
 $filePathLaunchJson = Join-Path -Path $vsCodeDir -ChildPath "launch.json"
 $filePathSettingsJson = Join-Path -Path $vsCodeDir -ChildPath "settings.json"
 $filePathTasksJson = Join-Path -Path $vsCodeDir -ChildPath "tasks.json"
