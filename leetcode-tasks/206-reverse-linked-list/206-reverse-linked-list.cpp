@@ -62,21 +62,23 @@ public:
 
     ListNode* reverseList(ListNode* pHead)
     {
-        if (nullptr == pHead)
+        return reverseNode(pHead, nullptr);
+    };
+
+private:
+
+    ListNode* reverseNode(ListNode* pCurrentNode, ListNode* pPreviousNode)
+    {
+        if (nullptr == pCurrentNode)
         {
             return nullptr;
         }
 
-        ListNode* pNewHead = pHead;
-        if (nullptr != pHead->next)
-        {
-            pNewHead = reverseList(pHead->next);
-            pHead->next->next = pHead;
-        }
-        pHead->next = nullptr;
+        ListNode* pNextNode = pCurrentNode->next;
+        pCurrentNode->next = pPreviousNode;
 
-        return pNewHead;
-    };
+        return reverseNode(pNextNode, pCurrentNode);
+    }
 };
 
 TEST(SolutionTest, Example1)
