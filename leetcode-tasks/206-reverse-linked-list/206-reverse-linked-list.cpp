@@ -71,7 +71,7 @@ private:
     {
         if (nullptr == pCurrentNode)
         {
-            return nullptr;
+            return pPreviousNode;
         }
 
         ListNode* pNextNode = pCurrentNode->next;
