@@ -2,16 +2,26 @@
 #include <memory>
 #include <vector>
 
-
 struct ListNode
 {
     int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
+    ListNode* next;
+    ListNode()
+        : val(0), next(nullptr)
+    {
+    }
+    ListNode(int x)
+        : val(x), next(nullptr)
+    {
+    }
+    ListNode(int x, ListNode* next)
+        : val(x), next(next)
+    {
+    }
 };
 
+/*
+// NOTE: Regular cycle solution
 class Solution
 {
 public:
@@ -23,8 +33,8 @@ public:
             return nullptr;
         }
 
-        ListNode* pPreviousNode = nullptr; 
-        ListNode* pCurrentNode = pHead; 
+        ListNode* pPreviousNode = nullptr;
+        ListNode* pCurrentNode = pHead;
 
         while (pCurrentNode != nullptr)
         {
@@ -43,8 +53,33 @@ public:
     };
 
 };
+*/
 
-TEST (SolutionTest, Example1)
+// NOTE: recursive solution
+class Solution
+{
+public:
+
+    ListNode* reverseList(ListNode* pHead)
+    {
+        if (nullptr == pHead)
+        {
+            return nullptr;
+        }
+
+        ListNode* pNewHead = pHead;
+        if (nullptr != pHead->next)
+        {
+            pNewHead = reverseList(pHead->next);
+            pHead->next->next = pHead;
+        }
+        pHead->next = nullptr;
+
+        return pNewHead;
+    };
+};
+
+TEST(SolutionTest, Example1)
 {
     auto node4 = std::make_unique<ListNode>(3, nullptr);
     auto node3 = std::make_unique<ListNode>(2, node4.get());
@@ -68,7 +103,7 @@ TEST (SolutionTest, Example1)
     }
 }
 
-TEST (SolutionTest, Example2)
+TEST(SolutionTest, Example2)
 {
     auto node2 = std::make_unique<ListNode>(2, nullptr);
     auto node1 = std::make_unique<ListNode>(1, node2.get());
@@ -88,7 +123,7 @@ TEST (SolutionTest, Example2)
     }
 }
 
-TEST (SolutionTest, Example3)
+TEST(SolutionTest, Example3)
 {
     auto node1 = std::make_unique<ListNode>(1, nullptr);
     std::vector<ListNode*> reverseDirection;
@@ -106,7 +141,7 @@ TEST (SolutionTest, Example3)
     }
 }
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
